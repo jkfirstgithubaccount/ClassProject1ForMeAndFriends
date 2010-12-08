@@ -1,0 +1,14 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+[gui]
+	wmstate = normal
+	geometry = 811x379+44+58 166 170
+[remote "origin"]
+	url = git@github.com:jkfirstgithubaccount/ClassEclipseProject2ForMeAndFriends.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
