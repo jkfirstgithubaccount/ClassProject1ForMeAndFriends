@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class City {
-
+	//**
 	// Liste der Polygone
 	int anzPoly; //Anzahl der Stadtteile
 	int[][] xyPoly;
@@ -121,7 +121,7 @@ public class City {
 					Polygon part = new Polygon(xPoly, yPoly, anzEcke);
 					ward.add(part);
 				}
-				else System.out.println("Falsches Format");
+				else System.out.println("Falsches Format!");
 				//Attributwerte
 				zeile=br.readLine();
 				
