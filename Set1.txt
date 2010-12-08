@@ -1,7 +1,7 @@
 3
-Population
-Refrigerator
-Shack
+FullPopulationOfDistrict
+PercentOfRefrigerators
+NumberOfShacks
 2
 3
 0 0 0 6000 9000 6000
