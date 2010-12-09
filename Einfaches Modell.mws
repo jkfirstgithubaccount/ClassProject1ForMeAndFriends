@@ -1,0 +1,239 @@
+{VERSION 5 0 "IBM INTEL NT" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Text Output" -1 2 
+1 {CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 0 0 0 0 0 1 3 0 3 0 }1 0 
+0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Warning" 2 7 1 {CSTYLE "" -1 -1 
+"" 0 1 0 0 255 1 0 0 0 0 0 0 1 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 
+}{PSTYLE "Maple Output" -1 11 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 
+2 2 2 2 2 2 1 1 1 1 }3 3 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Outpu
+t" -1 12 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }
+1 3 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Plot" -1 13 1 {CSTYLE "" 
+-1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 1 0 0 0 0 1 0 1 0 2 
+2 0 1 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "S:=proc(C,D) local A,B,L :    ###Sy
+ntax  C=[a,b],D=[c,d]" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 63 "        if
+ C[1]<=D[1] then A:=C; B:=D else A:=D; B:=C end if;  " }}{PARA 0 "> " 
+0 "" {MPLTEXT 1 0 38 "        if A[2]<=B[1] then L:=0 else  " }}{PARA 
+0 "> " 0 "" {MPLTEXT 1 0 97 "            if B[2]<=A[2] then L:=B[2]-B[
+1] else L:=A[2]-B[1] end if; end if;                    " }}{PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 18 "        RETURN(L);" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 17 "        end proc:" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 
+0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 69 "R:=(x,y,a,b,g)->[x,y
+,a,b,g];   ### das ist ein Rechteck mit Gewicht g" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"RGf*6'%\"xG%\"yG%\"aG%\"bG%\"gG6\"6$%)operatorG%&ar
+rowGF,7'9$9%9&9'9(F,F,F," }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 54 
+"Q:=(x,y,a)->R(x,y,a,a,1);      ### das ist ein Quadrat" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>%\"QGf*6%%\"xG%\"yG%\"aG6\"6$%)operatorG%&arrow
+GF*-%\"RG6'9$9%9&F3\"\"\"F*F*F*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 45 "Area:=proc(RR,QQ) local R,Q,F,dx,dy:  #Syntax" }}{PARA 0 "> " 
+0 "" {MPLTEXT 1 0 17 "          R:=RR; " }}{PARA 0 "> " 0 "" {MPLTEXT 
+1 0 16 "          Q:=QQ;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 59 "       \+
+   dx:=S( [R[1],R[1]+R[3] ],[Q[1],Q[1]+Q[3]   ]  ) ;" }}{PARA 0 "> " 
+0 "" {MPLTEXT 1 0 79 "          dy:=S([ R[2],R[2]+R[4] ],[ Q[2],Q[2]+Q
+[3]  ]);  ##es ist ja Q[3]=Q[4]" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "
+          F:=dx*dy;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "          RE
+TURN(F);" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "          end proc:" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 69 "###########################
+##########################################" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 88 "Wert:
+=proc(RLL,QLL) local RL,QL,r,q,Summe ,i,j:  ##RLL=Rechtecksliste, QLL=
+Quadrateliste" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 104 "                 \+
+   RL:=RLL;                     ##Syntax RL=[ Rechteck1,Rechteck2,... \+
+]                " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 84 "              \+
+      QL:=QLL;                     ##Syntax QL=[Quadrat1,Quadrat2,.. ]
+" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 49 "                    r:=nops(RL)
+;                 " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 42 "             \+
+       q:=nops(QL); Summe:=0;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 40 "  \+
+                  for i from 1 to r do" }}{PARA 0 "> " 0 "" {MPLTEXT 
+1 0 44 "                       for j from 1 to q do " }}{PARA 0 "> " 
+0 "" {MPLTEXT 1 0 67 "                          Summe:=Summe+Area(RL[i
+],QL[j])*RL[i][5]; " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 30 "            \+
+           end do;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "             \+
+       end do; " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "                \+
+    RETURN(Summe);" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "             \+
+       end proc:" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 1 " " }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 11 "" 1 "" {TEXT 
+-1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 12 "with(plots):" }}{PARA 7 "" 1 "" {TEXT -1 
+50 "Warning, the name changecoords has been redefined\n" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "R(3,3,5,9,1);" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 14 "              " }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7'
+\"\"$F$\"\"&\"\"*\"\"\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 88 "
+ZeichneEinRechteck:=proc(RR) local A,L:   #RR ist ein Rechteck.. bring
+t es auf eine Form" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 66 "             \+
+   A:=RR;                    #um sp\344ter zu zeichnen  " }}{PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 95 "                L:=[[ A[1],A[2]] ,[A[1]+A[3] \+
+,A[2]],[ A[1]+A[3],A[2]+A[4]] ,[A[1],A[2]+A[4]] ];" }}{PARA 0 "> " 0 "
+" {MPLTEXT 1 0 46 "                RETURN(polygonplot(L));       " }}
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "                end proc: " }}}
+{EXCHG {PARA 12 "" 1 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}
+{PARA 13 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 63 "RechtecksListe:=[ R(3,3,5,9,1),R(10,1,3,6,1) ,R(12,8,6,4,1)  ];
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%/RechtecksListeG7%7'\"\"$F'\"\"&
+\"\"*\"\"\"7'\"#5F*F'\"\"'F*7'\"#7\"\")F-\"\"%F*" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 36 "QuadrateListe:=[Q(2,4,7),Q(9,5,5) ];" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%.QuadrateListeG7$7'\"\"#\"\"%\"\"(F)
+\"\"\"7'\"\"*\"\"&F-F-F*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 87 "ZeichneEinQuadrat:=proc
+(RR) local A,L:   #RR ist ein Rechteck.. bringt es auf eine Form" }}
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "                A:=RR;            #
+um zu zeichnen  " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 95 "               \+
+ L:=[[ A[1],A[2]] ,[A[1]+A[3] ,A[2]],[ A[1]+A[3],A[2]+A[4]] ,[A[1],A[2
+]+A[4]] ];" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 58 "                RETUR
+N(polygonplot(L,linestyle=3));       " }}{PARA 0 "> " 0 "" {MPLTEXT 1 
+0 26 "                end proc: " }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 107 "displa
+y(map(ZeichneEinRechteck,RechtecksListe), map(ZeichneEinQuadrat,Quadra
+teListe), scaling=CONSTRAINED);" }}{PARA 13 "" 1 "" {GLPLOT2D 417 323 
+323 {PLOTDATA 2 "6(-%)POLYGONSG6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#
+7F*7$F(F/-F$6#7&7$$\"#5F*$\"\"\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&
+7$F/F,7$$\"#=F*F,7$FFF/7$F/F/-F$6$7&7$$\"\"#F*$\"\"%F*7$$\"\"*F*FP7$FS
+$\"#6F*7$FNFV-%*LINESTYLEG6#F)-F$6$7&7$FS$\"\"&F*7$$\"#9F*Fjn7$F]oF67$
+FSF6FY-%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 2 9 1 4 1 1.000000 
+45.000000 45.000000 0 0 "Curve 1" "Curve 2" "Curve 3" "Curve 4" "Curve
+ 5" }}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "Wert(RechtecksListe,
+QuadrateListe);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#X" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 74 "Zeichne:=proc(RRR,QQQ) local A,B:  #RRR=Rechteckslist
+e, QQQ=Quadrateliste " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "        B:
+=Wert(RRR,QQQ);   " }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 127 "        A:=d
+isplay(map(ZeichneEinRechteck,RRR), map(ZeichneEinQuadrat,QQQ),textplo
+t([16,6,B],color=BLUE), scaling=CONSTRAINED);" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 21 "           RETURN(A);" }}{PARA 0 "> " 0 "" {MPLTEXT 
+1 0 20 "           end proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 94 "NeueRechtecksListe:=[ R(3,3,5,9,1),R(10,1,3,6,1) ,R(12,8,6,4,1),
+R(9,10,3,4,1),R(8,-2,2,10,1)];" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%3N
+eueRechtecksListeG7'7'\"\"$F'\"\"&\"\"*\"\"\"7'\"#5F*F'\"\"'F*7'\"#7\"
+\")F-\"\"%F*7'F)F,F'F1F*7'F0!\"#\"\"#F,F*" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 50 "NeueQuadrateListe:=[Q(2,4,7),Q(9,5,5),Q(9,-2,4) ];
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%2NeueQuadrateListeG7%7'\"\"#\"\"
+%\"\"(F)\"\"\"7'\"\"*\"\"&F-F-F*7'F,!\"#F(F(F*" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 46 "Zeichne(NeueRechtecksListe,NeueQuadrateListe);
+" }}{PARA 13 "" 1 "" {GLPLOT2D 400 300 300 {PLOTDATA 2 "6,-%)POLYGONSG
+6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#7F*7$F(F/-F$6#7&7$$\"#5F*$\"\"
+\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&7$F/F,7$$\"#=F*F,7$FFF/7$F/F/-
+F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#9F*7$FNFR-F$6#7&7$F,$!\"#F*7$F6FY7$F6F
+,7$F,F,-F$6$7&7$$\"\"#F*$\"\"%F*7$FNF^o7$FN$\"#6F*7$F\\oFbo-%*LINESTYL
+EG6#F)-F$6$7&7$FN$\"\"&F*7$FRF\\p7$FRF6FMFeo-F$6$7&7$FNFY7$F;FY7$F;F\\
+o7$FNF\\oFeo-%%TEXTG6%7$$\"#;F*$\"\"'F*Q#596\"-%'COLOURG6&%$RGBG$F*F*F
+eq$\"*++++\"!\")-%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 2 9 1 4 1 
+1.000000 45.000000 45.000000 0 0 "Curve 1" "Curve 2" "Curve 3" "Curve \+
+4" "Curve 5" "Curve 6" "Curve 7" "Curve 8" "Curve 9" }}}}{EXCHG {PARA 
+11 "" 1 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 96 "
+NeueQuadrateListe2:=[Q(2,3,7),Q(9,5,5),Q(9,-2,4) ];   #erstes Quadrat \+
+um 1 nach unten verschoben" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%3NeueQ
+uadrateListe2G7%7'\"\"#\"\"$\"\"(F)\"\"\"7'\"\"*\"\"&F-F-F*7'F,!\"#\"
+\"%F0F*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "Zeichne(NeueRech
+tecksListe,NeueQuadrateListe2);" }}{PARA 13 "" 1 "" {GLPLOT2D 400 300 
+300 {PLOTDATA 2 "6,-%)POLYGONSG6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#
+7F*7$F(F/-F$6#7&7$$\"#5F*$\"\"\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&
+7$F/F,7$$\"#=F*F,7$FFF/7$F/F/-F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#9F*7$FNF
+R-F$6#7&7$F,$!\"#F*7$F6FY7$F6F,7$F,F,-F$6$7&7$$\"\"#F*F(7$FNF(FM7$F\\o
+F6-%*LINESTYLEG6#F)-F$6$7&7$FN$\"\"&F*7$FRFgo7$FRF6FMF`o-F$6$7&7$FNFY7
+$F;FY7$F;F\\o7$FNF\\oF`o-%%TEXTG6%7$$\"#;F*$\"\"'F*Q#606\"-%'COLOURG6&
+%$RGBG$F*F*F`q$\"*++++\"!\")-%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 
+2 9 1 4 1 1.000000 45.000000 45.000000 0 0 "Curve 1" "Curve 2" "Curve \+
+3" "Curve 4" "Curve 5" "Curve 6" "Curve 7" "Curve 8" "Curve 9" }}}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 95 "NeueQuadrateListe3:=[Q(2,3,7
+),Q(9,5,5),Q(8,-2,4) ]; #Verschiebe unteres Quadrat um 1 nach links" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%3NeueQuadrateListe3G7%7'\"\"#\"\"$
+\"\"(F)\"\"\"7'\"\"*\"\"&F-F-F*7'\"\")!\"#\"\"%F1F*" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 47 "Zeichne(NeueRechtecksListe,NeueQuadrateLi
+ste3);" }}{PARA 13 "" 1 "" {GLPLOT2D 400 300 300 {PLOTDATA 2 "6,-%)POL
+YGONSG6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#7F*7$F(F/-F$6#7&7$$\"#5F*
+$\"\"\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&7$F/F,7$$\"#=F*F,7$FFF/7$
+F/F/-F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#9F*7$FNFR-F$6#7&7$F,$!\"#F*7$F6FY
+7$F6F,7$F,F,-F$6$7&7$$\"\"#F*F(7$FNF(FM7$F\\oF6-%*LINESTYLEG6#F)-F$6$7
+&7$FN$\"\"&F*7$FRFgo7$FRF6FMF`o-F$6$7&FX7$F/FY7$F/F\\o7$F,F\\oF`o-%%TE
+XTG6%7$$\"#;F*$\"\"'F*Q#636\"-%'COLOURG6&%$RGBG$F*F*F_q$\"*++++\"!\")-
+%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 2 9 1 4 1 1.000000 45.000000 
+45.000000 0 0 "Curve 1" "Curve 2" "Curve 3" "Curve 4" "Curve 5" "Curve
+ 6" "Curve 7" "Curve 8" "Curve 9" }}}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }{TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 94 "NeueQuadrateListe4:=[Q(2,3,7),Q(9,7,5),Q(8,-2,4) ]:#Verschiebe d
+as NW'liche Quadrat um 2 nach " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 138 "##oben:  die Idee ist, dass der \"Defekt\"(der Anteil des Qua
+drates, welches nichts \374berdeckt) dieses Quadrates minimiert wird, \+
+siehe Bild  " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "Zeichne(Neu
+eRechtecksListe,NeueQuadrateListe4);" }}{PARA 13 "" 1 "" {GLPLOT2D 
+400 300 300 {PLOTDATA 2 "6,-%)POLYGONSG6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(
+7$F,$\"#7F*7$F(F/-F$6#7&7$$\"#5F*$\"\"\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F
+>-F$6#7&7$F/F,7$$\"#=F*F,7$FFF/7$F/F/-F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#
+9F*7$FNFR-F$6#7&7$F,$!\"#F*7$F6FY7$F6F,7$F,F,-F$6$7&7$$\"\"#F*F(7$FNF(
+FM7$F\\oF6-%*LINESTYLEG6#F)-F$6$7&7$FNF>7$FRF>7$FRF/7$FNF/F`o-F$6$7&FX
+7$F/FY7$F/F\\o7$F,F\\oF`o-%%TEXTG6%7$$\"#;F*$\"\"'F*Q#656\"-%'COLOURG6
+&%$RGBG$F*F*F^q$\"*++++\"!\")-%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 
+0 2 9 1 4 1 1.000000 45.000000 45.000000 0 0 "Curve 1" "Curve 2" "Curv
+e 3" "Curve 4" "Curve 5" "Curve 6" "Curve 7" "Curve 8" "Curve 9" }}}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 59 "### war das jetzt Zufall,dass der Wert gestiegen is
+t? oder " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 196 "NeueQuadrateLi
+ste5:=[Q(2,3,7),Q(9,7,5),Q(8,-1,4) ]: #verschiebe das untere um eins n
+ach oben, was unten verloren geht, kommt genau oben links wieder dazu \+
+und zus\344tlich oben rechts sogar ein Gewinn" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 47 "Zeichne(NeueRechtecksListe,NeueQuadrateListe5);
+" }}{PARA 13 "" 1 "" {GLPLOT2D 400 300 300 {PLOTDATA 2 "6,-%)POLYGONSG
+6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#7F*7$F(F/-F$6#7&7$$\"#5F*$\"\"
+\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&7$F/F,7$$\"#=F*F,7$FFF/7$F/F/-
+F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#9F*7$FNFR-F$6#7&7$F,$!\"#F*7$F6FY7$F6F
+,7$F,F,-F$6$7&7$$\"\"#F*F(7$FNF(FM7$F\\oF6-%*LINESTYLEG6#F)-F$6$7&7$FN
+F>7$FRF>7$FRF/7$FNF/F`o-F$6$7&7$F,$!\"\"F*7$F/F^p7$F/F(F+F`o-%%TEXTG6%
+7$$\"#;F*$\"\"'F*Q#676\"-%'COLOURG6&%$RGBG$F*F*F`q$\"*++++\"!\")-%(SCA
+LINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 2 9 1 4 1 1.000000 45.000000 
+45.000000 0 0 "Curve 1" "Curve 2" "Curve 3" "Curve 4" "Curve 5" "Curve
+ 6" "Curve 7" "Curve 8" "Curve 9" }}}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 51 "NeueQuadrateListe6:=[Q(2,3,7),Q(9,8,5),Q(8,-1,4) ];" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%3NeueQuadrateListe6G7%7'\"\"#\"\"$
+\"\"(F)\"\"\"7'\"\"*\"\")\"\"&F.F*7'F-!\"\"\"\"%F1F*" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 47 "Zeichne(NeueRechtecksListe,NeueQuadrateLi
+ste6);" }}{PARA 13 "" 1 "" {GLPLOT2D 400 300 300 {PLOTDATA 2 "6,-%)POL
+YGONSG6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#7F*7$F(F/-F$6#7&7$$\"#5F*
+$\"\"\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&7$F/F,7$$\"#=F*F,7$FFF/7$
+F/F/-F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#9F*7$FNFR-F$6#7&7$F,$!\"#F*7$F6FY
+7$F6F,7$F,F,-F$6$7&7$$\"\"#F*F(7$FNF(FM7$F\\oF6-%*LINESTYLEG6#F)-F$6$7
+&7$FNF,7$FRF,7$FRF;7$FNF;F`o-F$6$7&7$F,$!\"\"F*7$F/F^p7$F/F(F+F`o-%%TE
+XTG6%7$$\"#;F*$\"\"'F*Q#696\"-%'COLOURG6&%$RGBG$F*F*F`q$\"*++++\"!\")-
+%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 2 9 1 4 1 1.000000 45.000000 
+45.000000 0 0 "Curve 1" "Curve 2" "Curve 3" "Curve 4" "Curve 5" "Curve
+ 6" "Curve 7" "Curve 8" "Curve 9" }}}}{EXCHG {PARA 11 "" 1 "" {TEXT 
+-1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "NeueQuadrateListe
+7:=[Q(2,3,7),Q(9,9,5),Q(8,-1,4) ];" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+>%3NeueQuadrateListe7G7%7'\"\"#\"\"$\"\"(F)\"\"\"7'\"\"*F,\"\"&F-F*7'
+\"\")!\"\"\"\"%F1F*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "Zeic
+hne(NeueRechtecksListe,NeueQuadrateListe7);" }}{PARA 13 "" 1 "" 
+{GLPLOT2D 400 300 300 {PLOTDATA 2 "6,-%)POLYGONSG6#7&7$$\"\"$\"\"!F(7$
+$\"\")F*F(7$F,$\"#7F*7$F(F/-F$6#7&7$$\"#5F*$\"\"\"F*7$$\"#8F*F87$F;$\"
+\"(F*7$F6F>-F$6#7&7$F/F,7$$\"#=F*F,7$FFF/7$F/F/-F$6#7&7$$\"\"*F*F67$F/
+F67$F/$\"#9F*7$FNFR-F$6#7&7$F,$!\"#F*7$F6FY7$F6F,7$F,F,-F$6$7&7$$\"\"#
+F*F(7$FNF(FM7$F\\oF6-%*LINESTYLEG6#F)-F$6$7&7$FNFN7$FRFN7$FRFRFTF`o-F$
+6$7&7$F,$!\"\"F*7$F/F]p7$F/F(F+F`o-%%TEXTG6%7$$\"#;F*$\"\"'F*Q#706\"-%
+'COLOURG6&%$RGBG$F*F*F_q$\"*++++\"!\")-%(SCALINGG6#%,CONSTRAINEDG" 1 
+2 0 1 10 0 2 9 1 4 1 1.000000 45.000000 45.000000 0 0 "Curve 1" "Curve
+ 2" "Curve 3" "Curve 4" "Curve 5" "Curve 6" "Curve 7" "Curve 8" "Curve
+ 9" }}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "
+> " 0 "" {MPLTEXT 1 0 107 "#Verschiebe das NO Quadrat um 1 nach rechts
+ und dann um 2 (oder auch 3 wegen der Optik) Einheiten nach oben" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 50 "NeueQuadrateListe8:=[Q(2,3,7
+),Q(9,9,5),Q(9,2,4) ];" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%3NeueQuadr
+ateListe8G7%7'\"\"#\"\"$\"\"(F)\"\"\"7'\"\"*F,\"\"&F-F*7'F,F'\"\"%F/F*
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "Zeichne(NeueRechtecksLi
+ste,NeueQuadrateListe8);" }}{PARA 13 "" 1 "" {GLPLOT2D 400 300 300 
+{PLOTDATA 2 "6,-%)POLYGONSG6#7&7$$\"\"$\"\"!F(7$$\"\")F*F(7$F,$\"#7F*7
+$F(F/-F$6#7&7$$\"#5F*$\"\"\"F*7$$\"#8F*F87$F;$\"\"(F*7$F6F>-F$6#7&7$F/
+F,7$$\"#=F*F,7$FFF/7$F/F/-F$6#7&7$$\"\"*F*F67$F/F67$F/$\"#9F*7$FNFR-F$
+6#7&7$F,$!\"#F*7$F6FY7$F6F,7$F,F,-F$6$7&7$$\"\"#F*F(7$FNF(FM7$F\\oF6-%
+*LINESTYLEG6#F)-F$6$7&7$FNFN7$FRFN7$FRFRFTF`o-F$6$7&7$FNF\\o7$F;F\\o7$
+F;$\"\"'F*7$FNF_pF`o-%%TEXTG6%7$$\"#;F*F_pQ#746\"-%'COLOURG6&%$RGBG$F*
+F*F^q$\"*++++\"!\")-%(SCALINGG6#%,CONSTRAINEDG" 1 2 0 1 10 0 2 9 1 4 
+1 1.000000 45.000000 45.000000 0 0 "Curve 1" "Curve 2" "Curve 3" "Curv
+e 4" "Curve 5" "Curve 6" "Curve 7" "Curve 8" "Curve 9" }}}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "55" 0 }{VIEWOPTS 1 1 0 
+1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
