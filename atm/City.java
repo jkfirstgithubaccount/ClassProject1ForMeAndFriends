@@ -21,6 +21,12 @@ public class City {
 	public City (){
 	}
 	
+	boolean setDistrict(Polygon poly, int anzAttribut, int[] attrWert){
+		District distr = new District(poly, attrWert);
+		ward.add(distr);
+		return true;
+	}
+	
 	boolean setDistricts(int anzDistrict, ArrayList<Polygon> liste, int anzAttr, int[] attrWert){
 		anzDist = anzDistrict;
 //		int k = 0;

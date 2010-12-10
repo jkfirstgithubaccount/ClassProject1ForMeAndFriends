@@ -38,6 +38,12 @@ class Terminal{
 	int yPos = 0;
 	int fWert = 0;	
 	
+	public Terminal(){
+		this.xPos = 0;
+		this.yPos = 0;
+		this.fWert = 0;		
+	}
+	
 	void set(int x, int y, int functionsWert){
 		xPos = x;
 		yPos = y;

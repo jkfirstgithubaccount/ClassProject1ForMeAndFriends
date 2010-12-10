@@ -2,7 +2,9 @@ package atm;
 
 import java.awt.Polygon;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class DataMan {
@@ -19,18 +21,18 @@ public class DataMan {
 		manipul.readFile("Set1.txt", Stadt, Automat);
 		manipul.print(Stadt);
 		manipul.print(Automat);
-		manipul.writeFile("Name", Automat);
+		manipul.writeFile("Set1_log.txt", Automat);
 		
 		City Dorf = new City();
 		ATM Auto = new ATM();
 		manipul.readFile("Set2.txt", Dorf, Auto);
 		manipul.print(Dorf);
 		manipul.print(Auto);
-		manipul.writeFile("Name", Auto);
+		manipul.writeFile("Set2_log.txt", Auto);
 	}
 	
 	boolean readFile(String Filename, City city, ATM atm){
-		int anz, rad; // Hilfsvariablen
+		int anzP, anzA, rad; // Hilfsvariablen
 		
 		try{
 			FileReader file = new FileReader(Filename);
@@ -50,8 +52,8 @@ public class DataMan {
 			//Polygone einlesen
 			zeile=br.readLine();
 			Zahl = zeile.trim();
-			city.anzPoly = Integer.parseInt(Zahl);
-			for (int i=0; i<city.anzPoly; i++){
+			anzP = Integer.parseInt(Zahl);
+			for (int i=0; i<anzP; i++){
 				//Anzahl der Ecken des Polygons
 				zeile=br.readLine();
 				//
@@ -62,6 +64,7 @@ public class DataMan {
 				//Koordinaten der Polygonecken
 				zeile=br.readLine();
 				String[] zahlen = zeile.split(" ");
+				Polygon part = new Polygon();
 				if (zahlen.length/2 == anzEcke){
 					int k = 0;
 					for (int j=0; j< anzEcke; j++){
@@ -70,22 +73,29 @@ public class DataMan {
 						yPoly[j] = Integer.parseInt(zahlen[k]);
 						k++;
 					}
-					Polygon part = new Polygon(xPoly, yPoly, anzEcke);
-					city.ward.add(part);
+					part = new Polygon(xPoly, yPoly, anzEcke);					
+//					city.ward.add(part);
 				}
 				else System.out.println("Falsches Format!");
 				//Attributwerte
 				zeile=br.readLine();
+				String[] txtAttr = zeile.split(" ");
+				int[] attrWert = new int[txtAttr.length];
+				for (int j=0; j<txtAttr.length; j++){
+					attrWert[j] = Integer.parseInt(txtAttr[j]);
+				}
+				city.setDistrict(part, city.anzAttr, attrWert);
+				
 			}
 			
 			//Bankautomaten einlesen
 			zeile=br.readLine();
 			Zahl = zeile.trim();
-			anz = Integer.parseInt(Zahl);
+			anzA = Integer.parseInt(Zahl);
 			zeile=br.readLine();
 			Zahl = zeile.trim();
 			rad = Integer.parseInt(Zahl);
-			atm.set(anz, rad);
+			atm.set(anzA, rad);
 					
 			br.close();
 		}
@@ -98,24 +108,44 @@ public class DataMan {
 	}
 	
 	boolean writeFile(String Filename, ATM atms){
-		//TODO File erstellen und Stream öffnen
-		
-		System.out.println(" Die "+atms.anzAtm+" Automaten mit Radius "+atms.radAtm+" haben folgende Koordinaten:");
-		for (int i = 0; i<atms.cashTerminal.size(); i++){
-			System.out.println(atms.cashTerminal.elementAt(i).getX()+" "+atms.cashTerminal.elementAt(i).yPos);
-			System.out.println(atms.cashTerminal.elementAt(i).fWert);
+		BufferedWriter outPut;
+		try{
+			outPut = new BufferedWriter( new FileWriter(Filename));
+			System.out.println(" Die "+atms.anzAtm+" Automaten mit Radius "+atms.radAtm+" haben folgende Koordinaten:");
+			for (int i = 0; i<atms.cashTerminal.size(); i++){
+				try{
+					outPut.write(atms.cashTerminal.elementAt(i).getX()+" "+atms.cashTerminal.elementAt(i).yPos);
+					outPut.newLine();
+					outPut.write(atms.cashTerminal.elementAt(i).getF()+" ");
+					outPut.newLine();
+				}
+				catch( IOException e){
+					System.out.println("Fehler beim Schreiben in File.");
+				}
+				System.out.println(atms.cashTerminal.elementAt(i).getX()+" "+atms.cashTerminal.elementAt(i).yPos);
+				System.out.println(atms.cashTerminal.elementAt(i).fWert);
+			}
+			try{
+				outPut.close();
+			}
+			catch( IOException e){
+				System.out.println("Fehler beim Schließen des Files");
+			}
+		}
+		catch(IOException e){
+			System.out.println("Output-File konnte nicht generiert werden");
 		}
 		return true;
 	}
 	
 	void print(City city){
 		int i =0;
-		System.out.print("Die Stadt besteht aus "+ city.anzPoly +" Stadtteilen.");
-		for (i=0; i< city.anzPoly; i++){
+		System.out.print("Die Stadt besteht aus "+ city.ward.size()+" Stadtteilen.");
+		for (i=0; i< city.ward.size(); i++){
 			System.out.print("\n"+(i+1)+". Stadtteil in x-y-Koordinaten: ");
-			System.out.print(city.ward.get(i).npoints+"-Eck  ");
-			for (int j=0; j<city.ward.get(i).npoints; j++)
-				System.out.print(city.ward.get(i).xpoints[j] +"|"+city.ward.get(i).ypoints[j] +"   ");
+			System.out.print(city.ward.get(i).form.npoints+"-Eck  ");
+			for (int j=0; j<city.ward.get(i).form.npoints; j++)
+				System.out.print(city.ward.get(i).form.xpoints[j] +"|"+city.ward.get(i).form.ypoints[j] +"   ");
 //			for (i=0; i<xyPoly.length; i++) //Werte des letzten Polygons
 //			System.out.print(xyPoly[i][0] +"|"+xyPoly[i][1] +"   ");
 		}
