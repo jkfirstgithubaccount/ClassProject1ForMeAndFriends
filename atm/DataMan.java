@@ -18,7 +18,10 @@ public class DataMan {
 		City Stadt = new City();
 		ATM Automat = new ATM();
 		DataMan manipul = new DataMan();
+		Calc calcul = new Calc();
 		manipul.readFile("Set1.txt", Stadt, Automat);
+		calcul.berechneWertefunktion(Stadt, 0);
+		calcul.einfachePos(Stadt, Automat);
 		manipul.print(Stadt);
 		manipul.print(Automat);
 		manipul.writeFile("Set1_log.txt", Automat);
@@ -53,6 +56,7 @@ public class DataMan {
 			zeile=br.readLine();
 			Zahl = zeile.trim();
 			anzP = Integer.parseInt(Zahl);
+			city.anzDist = anzP;
 			for (int i=0; i<anzP; i++){
 				//Anzahl der Ecken des Polygons
 				zeile=br.readLine();

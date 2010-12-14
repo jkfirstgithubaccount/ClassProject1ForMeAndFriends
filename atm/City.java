@@ -1,9 +1,6 @@
 package atm;
 
 import java.awt.Polygon;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -46,11 +43,15 @@ public class City {
 class District{
 	Polygon form;
 	int[] attrV;
+	int value = 0;
 	
 	public District(Polygon poly, int[] attrWert){
 		form = poly;
 		attrV = attrWert;
 	}
 	
+	void setFunktionswert(int wert){
+		value = wert;
+	}
 }
 
