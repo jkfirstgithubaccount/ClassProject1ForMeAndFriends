@@ -12,6 +12,19 @@ public class DataMan {
 	public DataMan(){
 	}
 	
+	public DataMan(String arg){
+		if (arg.equals("Beispiel")){
+			City Stadt = new City();
+			ATM Automat = new ATM();
+			Calc calcul = new Calc();
+			readFile("Set1.txt", Stadt, Automat);
+			calcul.berechneWertefunktion(Stadt, 0);
+			calcul.triangleMid(Stadt, Automat);
+			print(Stadt);
+			print(Automat);
+			writeFile("Set1_log.txt", Automat);	
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -19,19 +32,34 @@ public class DataMan {
 		ATM Automat = new ATM();
 		DataMan manipul = new DataMan();
 		Calc calcul = new Calc();
-		manipul.readFile("Set1.txt", Stadt, Automat);
+		manipul.readFile("Germiston.txt", Stadt, Automat);
 		calcul.berechneWertefunktion(Stadt, 0);
-		calcul.einfachePos(Stadt, Automat);
+		calcul.triangleMid(Stadt, Automat);
 		manipul.print(Stadt);
 		manipul.print(Automat);
-		manipul.writeFile("Set1_log.txt", Automat);
+		manipul.writeFile("Germiston_log.txt", Automat);
 		
 		City Dorf = new City();
 		ATM Auto = new ATM();
 		manipul.readFile("Set2.txt", Dorf, Auto);
+		calcul.berechneWertefunktion(Dorf, 0);
+		calcul.einfachePos(Dorf, Auto);
 		manipul.print(Dorf);
 		manipul.print(Auto);
 		manipul.writeFile("Set2_log.txt", Auto);
+	}
+	
+	public City testMan(String arg){
+		if (arg.equals("Beispiel")){
+			City Stadt = new City();
+			ATM Automat = new ATM();
+			Calc calcul = new Calc();
+			readFile("Set2.txt", Stadt, Automat);
+			calcul.berechneWertefunktion(Stadt, 0);
+			return Stadt;	
+		}
+		else 
+			return null;
 	}
 	
 	boolean readFile(String Filename, City city, ATM atm){
@@ -86,7 +114,13 @@ public class DataMan {
 				String[] txtAttr = zeile.split(" ");
 				int[] attrWert = new int[txtAttr.length];
 				for (int j=0; j<txtAttr.length; j++){
-					attrWert[j] = Integer.parseInt(txtAttr[j]);
+					try{ 
+						attrWert[j] = Integer.parseInt(txtAttr[j]);
+					}
+					catch(Exception e){
+						attrWert[j] = 0;
+					}
+					// ACHTUNG hier vereinfacht ! muss noch auf Attributwerte wie Name erweiteret werden!!
 				}
 				city.setDistrict(part, city.anzAttr, attrWert);
 				
@@ -142,7 +176,7 @@ public class DataMan {
 		return true;
 	}
 	
-	void print(City city){
+	public void print(City city){
 		int i =0;
 		System.out.print("Die Stadt besteht aus "+ city.ward.size()+" Stadtteilen.");
 		for (i=0; i< city.ward.size(); i++){

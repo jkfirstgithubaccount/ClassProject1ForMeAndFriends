@@ -1,7 +1,9 @@
 package atm;
 
 
+import java.awt.Polygon;
 import java.awt.geom.Rectangle2D;
+
 
 /**
  * @author admin
@@ -20,8 +22,8 @@ public class Calc {
 			for (int d=0; d<city.anzDist; d++){
 				int avg=0;
 				for (int i=0; i<city.anzAttr; i++){
-					avg =+ city.ward.elementAt(d).attrV[i];
-					System.out.println("in District "+d+" einlesen von Attribut "+i);
+					avg += city.ward.elementAt(d).attrV[i];
+					//System.out.println("in District "+d+" einlesen von Attribut "+i);
 				}
 				avg = avg/city.anzAttr;
 				city.ward.elementAt(d).setFunktionswert(avg);
@@ -41,7 +43,27 @@ public class Calc {
 			Rectangle2D box = city.ward.elementAt(i).form.getBounds2D();
 			atm.cashTerminal.elementAt(i).xPos = (int) box.getCenterX();
 			atm.cashTerminal.elementAt(i).yPos = (int) box.getCenterY();
-			atm.cashTerminal.elementAt(i).fWert = city.ward.firstElement().value;
+			atm.cashTerminal.elementAt(i).fWert = city.ward.elementAt(i).value;
+		}
+	}
+	
+	
+	void triangleMid(City city, ATM atm){
+		int min = 0;
+		if (city.anzDist>atm.anzAtm) min=atm.anzAtm;
+		else min=city.anzDist;
+		
+		for (int i=0; i<min; i++){
+			Polygon poly = city.ward.elementAt(i%city.anzDist).form;
+			int corner = poly.npoints;
+			int xPos=0, yPos=0;
+			for (int j=0; j<corner; j++){
+				xPos += poly.xpoints[j];
+				yPos += poly.ypoints[j];
+			}
+			atm.cashTerminal.elementAt(i).xPos = xPos/corner;
+			atm.cashTerminal.elementAt(i).yPos = yPos/corner;
+			atm.cashTerminal.elementAt(i).fWert = city.ward.elementAt(i%city.anzDist).value;
 		}
 	}
 	

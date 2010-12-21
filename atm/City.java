@@ -37,6 +37,64 @@ public class City {
 		}
 		return true;
 	}
+
+	/**
+	 * @return the anzDist
+	 */
+	public int getAnzDist() {
+		return anzDist;
+	}
+
+	/**
+	 * @param anzDist the anzDist to set
+	 */
+	public void setAnzDist(int anzDist) {
+		this.anzDist = anzDist;
+	}
+
+	/**
+	 * @return the ward
+	 */
+	public Vector<District> getWard() {
+		return ward;
+	}
+	/**
+	 * @return the Polygon in Position i
+	 */
+	public Polygon getPoly(int i) {
+		return ward.elementAt(i).form;
+	}
+
+	/**
+	 * @param ward the ward to set
+	 */
+	public void setWard(Vector<District> ward) {
+		this.ward = ward;
+	}
+
+	/**
+	 * @return the anzAttr
+	 */
+	public int getAnzAttr() {
+		return anzAttr;
+	}
+
+	/**
+	 * @param anzAttr the anzAttr to set
+	 */
+	public void setAnzAttr(int anzAttr) {
+		this.anzAttr = anzAttr;
+	}
+
+	/**
+	 * @return the nameAttr
+	 */
+	public String[] getNameAttr() {
+		return nameAttr;
+	}
+
+	
+	
 	
 }
 
@@ -53,5 +111,6 @@ class District{
 	void setFunktionswert(int wert){
 		value = wert;
 	}
+
 }
 
