@@ -16,7 +16,7 @@ import atm.City;
 import atm.DataMan;
 
 public class MainFrame extends JFrame implements ActionListener {
-	// Kommentar von Jan
+	// Kommentar von Jan geändert
 		private JDesktopPane desktopPane;
 		private JSplitPane splitPane;
 		private JPanel ground;
