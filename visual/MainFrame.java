@@ -16,7 +16,7 @@ import atm.City;
 import atm.DataMan;
 
 public class MainFrame extends JFrame implements ActionListener {
-
+	// Kommentar von Jan
 		private JDesktopPane desktopPane;
 		private JSplitPane splitPane;
 		private JPanel ground;
@@ -50,7 +50,7 @@ public class MainFrame extends JFrame implements ActionListener {
 			ground.setBounds(new Rectangle(20, 20, 200, 200));
 			ground.add(new JLabel("Der Text "+ground.getBounds()), BorderLayout.NORTH);
 //			ground.setSize(new Dimension(50, 50));
-			
+
 			DataMan manipul = new DataMan();
 			City stadt = manipul.testMan("Beispiel");
 			manipul.print(stadt);
